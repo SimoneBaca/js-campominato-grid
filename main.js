@@ -3,7 +3,7 @@
 // 1- visualizzare l'elemento al click del bottone
 const play = document.querySelector('.play');
 play.addEventListener('click', function(){
-    document.querySelector('#field').style.visibility = "visible";
+    document.querySelector('.grid').style.visibility = "visible";
 })
 
 // 2- creare la griglia 10x10 
@@ -11,7 +11,7 @@ play.addEventListener('click', function(){
 function createGridSquare(number){
     const currentElement = document.createElement ('div')
     currentElement.classList.add('box')
-    currentElement.innerText = number+1;
+    currentElement.innerText = number;
     return currentElement;
 }
 
@@ -19,14 +19,12 @@ function createGridSquare(number){
 
 let grid = document.getElementById('field');
 
-for(let i=0; i<100; i++){
-    const currentSquare = createGridSquare(i);
+for(let i=0; i < 100; i++){
+    const currentSquare = createGridSquare(i+1);
     currentSquare.addEventListener('click', function(){
-        this.classList.add('blue');
+        this.classList.toggle('blue');
+        console.log(this.innerText)
     });
     grid.appendChild(currentSquare);
 }
 
-
-
-   
